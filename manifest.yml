@@ -1,0 +1,20 @@
+# manifest.yml
+manifest_version: 2
+
+version:
+  name: V1
+  label: "Multi-Stage Browser v1.0"
+  comment: "An app to browse multiple internal or external stages."
+
+artifacts:
+  setup_script: scripts/setup_script.sql
+  default_streamlit: app_ui.main
+  readme: README.md
+  
+privileges:
+  - CREATE WAREHOUSE:
+      description: "To create warehouses for executing tasks."
+  - MANAGE WAREHOUSES:
+      description: "To manage warehouses for optimizing the efficiency of your accounts."
+  - READ SESSION:
+      description: "To read session contex."

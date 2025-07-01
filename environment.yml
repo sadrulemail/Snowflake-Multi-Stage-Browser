@@ -1,0 +1,9 @@
+name: sf_env
+channels:
+- snowflake
+dependencies:
+- snowflake-native-apps-permission
+- snowflake-telemetry-python
+- python=3.11.*
+- snowflake-snowpark-python=
+- streamlit=
