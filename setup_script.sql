@@ -65,7 +65,7 @@ GRANT USAGE ON PROCEDURE app_core.is_admin_check() TO APPLICATION ROLE app_admin
 -- Step 6: Create the Streamlit UI Object
 CREATE OR REPLACE STREAMLIT app_ui.main
   FROM '/app'
-  MAIN_FILE = '/streamlit_app.py';
+  MAIN_FILE = '/streamlit_app_new.py';
 
 -- Grant usage on the Streamlit app to both roles.
 GRANT USAGE ON STREAMLIT app_ui.main TO APPLICATION ROLE app_admin;
@@ -73,12 +73,12 @@ GRANT USAGE ON STREAMLIT app_ui.main TO APPLICATION ROLE app_viewer;
 
 
 -- Step 7: Create a warehouse for the application to use
-CREATE WAREHOUSE IF NOT EXISTS STAGE_BROWSER_WH3
+CREATE WAREHOUSE IF NOT EXISTS STAGE_BROWSER_WH
   WAREHOUSE_SIZE = 'X-SMALL'
   AUTO_SUSPEND = 60
   AUTO_RESUME = TRUE
   INITIALLY_SUSPENDED = TRUE;
 
 -- Grant the application role usage on the new warehouse
-GRANT USAGE ON WAREHOUSE STAGE_BROWSER_WH3 TO APPLICATION ROLE app_admin;
-GRANT USAGE ON WAREHOUSE STAGE_BROWSER_WH3 TO APPLICATION ROLE app_viewer;
+GRANT USAGE ON WAREHOUSE STAGE_BROWSER_WH TO APPLICATION ROLE app_admin;
+GRANT USAGE ON WAREHOUSE STAGE_BROWSER_WH TO APPLICATION ROLE app_viewer;
